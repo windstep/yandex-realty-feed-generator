@@ -1,8 +1,7 @@
 <?php
 
-namespace App;
+namespace Windstep\YRLGenerator;
 
-use App\Contracts\AbstractOffer;
 use XMLWriter;
 
 class YRLGenerator
@@ -55,7 +54,7 @@ class YRLGenerator
         $this->engine->writeElement('generation-date', $generationDate ?? date(DATE_ATOM));
     }
 
-    public function bulkWrite(AbstractOffer $offer)
+    public function bulkWrite(Offer $offer)
     {
         $this->engine->writeRaw($offer->toXMLString());
         $this->flushIfNeeds();
