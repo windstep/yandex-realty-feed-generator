@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Windstep\\YRLGenerator": "src/"
+      "Windstep\\YRLGenerator\\": "src/"
     }
   },
   "autoload-dev": {
