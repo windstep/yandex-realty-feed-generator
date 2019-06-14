@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<realty-feed xmlns="http://webmaster.yandex.ru/schemas/feed/realty/2010-06">
+    <generation-date>2015-04-11T12:00:00+04:00</generation-date>
+    <offer internal-id="15782295">
+        <type>продажа</type>
+        <property-type>жилая</property-type>
+        <category>квартира</category>
+        <creation-date>2015-04-02T19:00:06+03:00</creation-date>
+        <location>
+            <country>Россия</country>
+            <locality-name>Санкт-Петербург</locality-name>
+            <address>18-я линия В.О., 32</address>
+            <metro>
+                <name>Василеостровская</name>
+            </metro>
+        </location>
+        <price>
+            <value>4780000</value>
+            <currency>RUR</currency>
+        </price>
+        <sales-agent>
+            <phone>+7812500400</phone>
+            <organization>ЗАО "Застройщик"</organization>
+            <url>http://www.developer.ru/</url>
+            <category>developer</category>
+            <photo>http://www.developer.ru/company/logo</photo>
+        </sales-agent>
+        <rooms>2</rooms>
+        <new-flat>1</new-flat>
+        <bathroom-unit>раздельный</bathroom-unit>
+        <balcony>балкон</balcony>
+        <floor>13</floor>
+        <floors-total>15</floors-total>
+        <building-name>Северная фантазия</building-name>
+        <yandex-building-id>12345</yandex-building-id>
+        <yandex-house-id>54321</yandex-house-id>
+        <building-section>Корпус 1</building-section>
+        <building-state>unfinished</building-state>
+        <ready-quarter>3</ready-quarter>
+        <built-year>2018</built-year>
+        <building-phase>3</building-phase>
+        <image>http://www.developer.ru/images/plans/000001289.jpg</image>
+        <description>Продается 2 к. кв., 13 этаж, 15 минут на машине до метро "Василеостровская". Дом комфорт-класса с
+            продуманными планировочными решениями и широким выбором квартир. Внутренний двор «Северной фантазии»
+            выполнен по эксклюзивному дизайн-проекту. В районе постройки нового ЖК развита инфраструктура: школы и
+            детские сады, больница, аптеки магазины, кафе и спортивные центры. Доступны разные условия ипотеки, скидки и
+            зачет жилья.
+        </description>
+        <area>
+            <value>63.00</value>
+            <unit>кв. м</unit>
+        </area>
+        <living-space>
+            <value>50.00</value>
+            <unit>кв. м</unit>
+        </living-space>
+        <kitchen-space>
+            <value>10.00</value>
+            <unit>кв. м</unit>
+        </kitchen-space>
+        <room-space>
+            <value>15</value>
+            <unit>кв. м</unit>
+        </room-space>
+        <room-space>
+            <value>35</value>
+            <unit>кв. м</unit>
+        </room-space>
+    </offer>
+</realty-feed>

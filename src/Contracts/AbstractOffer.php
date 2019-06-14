@@ -9,9 +9,11 @@ abstract class AbstractOffer
     /** @var XMLWriter */
     protected $engine;
     protected $properties = [];
+    protected $id;
 
-    public function __construct(array $data = [])
+    public function __construct($id, array $data = [])
     {
+        $this->id = $id;
         $this->fill($data);
     }
 
@@ -20,7 +22,7 @@ abstract class AbstractOffer
         $this->setupEngine();
         $this->engine->openMemory();
         $this->engine->startElement('offer');
-        $this->engine->writeAttribute('internal-id', $this->id ?? $this->properties['internal-id']);
+        $this->engine->writeAttribute('internal-id', $this->id);
 
         foreach ($this->properties as $propertyName => $value) {
             $this->createElement($propertyName, $value);
@@ -45,11 +47,6 @@ abstract class AbstractOffer
         $snakeCase = ucwords(str_replace(['-', '_'], ' ', $propertyName));
         $studlyCase = lcfirst(str_replace(' ', '', $snakeCase));
         return "create{$studlyCase}Element";
-    }
-
-    public function __get($name)
-    {
-        return $this->properties[$name] ?? null;
     }
 
     protected function createElement(string $propertyName, $value)
@@ -84,11 +81,24 @@ abstract class AbstractOffer
         }
     }
 
-    protected function writeElement(string $elementName, ?string $value, array $attributes = [])
+    protected function createRoomSpaceElement($roomSpaces)
+    {
+        $this->createSameNameElements('room-space', $roomSpaces);
+    }
+
+    protected function createSameNameElements($elementName, $values)
+    {
+        foreach ($values as $element) {
+            $this->writeArrayElement($elementName, $element);
+        }
+    }
+
+    protected function writeElement(string $elementName, $value, array $attributes = [])
     {
         if (null == $value) {
             return;
         }
+        $value = $this->processValue($value);
 
         $this->engine->startElement($elementName);
         foreach ($attributes as $attributeName => $attributeValue) {
@@ -101,5 +111,14 @@ abstract class AbstractOffer
     public function fill(array $data = [])
     {
         $this->properties = $data;
+    }
+
+    protected function processValue($value)
+    {
+        if (gettype($value) == 'float' || gettype($value) == 'double') {
+            return number_format($value, 2);
+        }
+
+        return $value;
     }
 }

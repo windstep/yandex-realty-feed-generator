@@ -1,3 +1,6 @@
 /vendor
 temporaryFile
 .idea
+index.php
+.phpunit.result.cache
+created_file.xml

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Contracts;
+namespace App;
 
+use App\Contracts\AbstractOffer;
 use XMLWriter;
 
 class YRLGenerator
@@ -10,7 +11,7 @@ class YRLGenerator
      * Устанавливаем кодировку для YRL файла
      * Технические требования обязывают нас устанавливать именно UTF-8
      */
-    protected $encoding = 'urf-8';
+    protected $encoding = 'UTF-8';
 
     /**
      * Путь к итоговому файлу.
@@ -45,13 +46,13 @@ class YRLGenerator
         $this->maxBufferLength = $bufferLength;
     }
 
-    public function beforeWrite()
+    public function beforeWrite(?string $generationDate = null)
     {
         $this->engine->openMemory();
         $this->engine->startDocument('1.0', $this->encoding);
         $this->engine->startElement('realty-feed');
         $this->engine->writeAttribute('xmlns', 'http://webmaster.yandex.ru/schemas/feed/realty/2010-06');
-        $this->engine->writeElement('generation-date', date(DATE_ATOM));
+        $this->engine->writeElement('generation-date', $generationDate ?? date(DATE_ATOM));
     }
 
     public function bulkWrite(AbstractOffer $offer)
