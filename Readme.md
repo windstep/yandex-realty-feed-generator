@@ -20,11 +20,10 @@ The main workflow is the following:
 use Windstep\YRLGenerator\YRLGenerator;
 use Windstep\YRLGenerator\Offer;
 
-$validFilePath = __DIR__ . '/files/valid_file.xml';
 $outputFilePath = __DIR__ . '/files/created_file.xml';
 $temporaryFilePath = __DIR__ . '/files/tmp_file.xml';
 
-$generator = new YRLGenerator($validFilePath, $outputFilePath, $temporaryFilePath); // Note, that last one could be null
+$generator = new YRLGenerator($outputFilePath, $temporaryFilePath); // Note, that last one could be null
 $generator->beforeWrite();
 $offers = [new Offer(1, $data), new Offer(2, $data)]; // Offer keys (first value) must be unique
 foreach ($offers as $offer) {
