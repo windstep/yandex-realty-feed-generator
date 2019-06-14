@@ -10,12 +10,17 @@ abstract class AbstractOffer
     protected $engine;
     protected $properties = [];
 
+    public function __construct(array $data = [])
+    {
+        $this->fill($data);
+    }
+
     public function toXMLString(): string
     {
         $this->setupEngine();
         $this->engine->openMemory();
         $this->engine->startElement('offer');
-        $this->engine->writeAttribute('internal-id', $this->id);
+        $this->engine->writeAttribute('internal-id', $this->id ?? $this->properties['internal-id']);
 
         foreach ($this->properties as $propertyName => $value) {
             $this->createElement($propertyName, $value);
@@ -25,17 +30,17 @@ abstract class AbstractOffer
         return $this->engine->flush(true);
     }
 
-    public function setupEngine()
+    protected function setupEngine()
     {
         $this->engine = new XMLWriter();
     }
 
-    public function propertyHasMethod(string $propertyMethod): bool
+    protected function propertyHasMethod(string $propertyMethod): bool
     {
         return method_exists($this, $propertyMethod);
     }
 
-    public function getMethodNameFromProperty(string $propertyName): string
+    protected function getMethodNameFromProperty(string $propertyName): string
     {
         $snakeCase = ucwords(str_replace(['-', '_'], ' ', $propertyName));
         $studlyCase = lcfirst(str_replace(' ', '', $snakeCase));
@@ -70,18 +75,31 @@ abstract class AbstractOffer
 
     protected function createImageElement($images)
     {
+        if ((!is_array($images) && count($images) < 1) || $images == null) {
+            return;
+        }
+
         foreach ($images as $image) {
             $this->writeElement('image', $image);
         }
     }
 
-    protected function writeElement(string $elementName, string $value, array $attributes = [])
+    protected function writeElement(string $elementName, ?string $value, array $attributes = [])
     {
+        if (null == $value) {
+            return;
+        }
+
         $this->engine->startElement($elementName);
         foreach ($attributes as $attributeName => $attributeValue) {
             $this->engine->writeAttribute($attributeName, $attributeValue);
         }
         $this->engine->text($value);
         $this->engine->fullEndElement();
+    }
+
+    public function fill(array $data = [])
+    {
+        $this->properties = $data;
     }
 }
