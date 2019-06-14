@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 use XMLWriter;
 
-abstract class AbstractYRLGenerator
+class YRLGenerator
 {
     /**
      * Устанавливаем кодировку для YRL файла
@@ -56,7 +56,8 @@ abstract class AbstractYRLGenerator
 
     public function bulkWrite(AbstractOffer $offer)
     {
-
+        $this->engine->writeRaw($offer->toXMLString());
+        $this->flushIfNeeds();
     }
 
     public function afterWrite()
@@ -84,5 +85,6 @@ abstract class AbstractYRLGenerator
         if (0 === $this->currentCount % $this->maxBufferLength) {
             $this->flushToFile();
         }
+        $this->currentCount++;
     }
 }

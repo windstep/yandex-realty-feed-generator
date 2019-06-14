@@ -6,7 +6,10 @@
       "email": "icq431@yandex.ru"
     }
   ],
-  "require": {},
+  "require": {
+    "ext-xmlwriter": "*",
+    "php": ">=7.3"
+  },
   "autoload": {
     "psr-4": {
       "App\\": "src/"
