@@ -86,6 +86,11 @@ class AbstractOffer
         $this->createSameNameElements('room-space', $roomSpaces);
     }
 
+    protected function createMetroElement($metro)
+    {
+        $this->createSameNameElements('metro', $metro);
+    }
+
     protected function createSameNameElements($elementName, $values)
     {
         foreach ($values as $element) {

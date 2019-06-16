@@ -4,3 +4,4 @@ temporaryFile
 index.php
 .phpunit.result.cache
 created_file.xml
+composer.lock

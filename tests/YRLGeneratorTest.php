@@ -27,7 +27,9 @@ class YRLGeneratorTest extends TestCase
                 'locality-name' => 'Санкт-Петербург',
                 'address' => '18-я линия В.О., 32',
                 'metro' => [
-                    'name' => 'Василеостровская'
+                    [
+                        'name' => 'Василеостровская'
+                    ]
                 ],
             ],
             'price' => [
