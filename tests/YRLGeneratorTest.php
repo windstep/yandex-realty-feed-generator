@@ -2,6 +2,7 @@
 
 namespace Test;
 
+use PHPUnit\Framework\TestCase;
 use Windstep\YRLGenerator\Offer;
 use Windstep\YRLGenerator\YRLGenerator;
 
