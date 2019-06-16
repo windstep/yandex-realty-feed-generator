@@ -4,7 +4,7 @@ namespace Windstep\YRLGenerator\Enums;
 
 use MyCLabs\Enum\Enum;
 
-class Type extends Enum
+class Unit extends Enum
 {
-    private const SELL = 'продажа';
+    private const METER_SQUARE = 'кв. м';
 }

@@ -2,6 +2,13 @@
 
 namespace Windstep\YRLGenerator;
 
+use Windstep\YRLGenerator\Enums\Category;
+use Windstep\YRLGenerator\Enums\Currency;
+use Windstep\YRLGenerator\Enums\DealStatus;
+use Windstep\YRLGenerator\Enums\PropertyType;
+use Windstep\YRLGenerator\Enums\SalesAgentCategory;
+use Windstep\YRLGenerator\Enums\Type;
+use Windstep\YRLGenerator\Enums\Unit;
 use Windstep\YRLGenerator\Traits\FiltersArray;
 
 class Offer extends AbstractOffer
@@ -12,12 +19,64 @@ class Offer extends AbstractOffer
     protected $type;
     protected $propertyType;
     protected $category;
+    protected $dealStatus;
+    protected $price;
 
     protected $location;
     protected $metro = [];
+    protected $salesAgent;
 
     protected $url;
     protected $creationDate;
+
+    public function setDealStatus(DealStatus $dealStatus)
+    {
+        $this->dealStatus = $dealStatus->getValue();
+        return $this;
+    }
+
+    public function setPrice($value, Currency $currency, ?Unit $unit = null)
+    {
+        $this->price = [
+            'value' => $value,
+            'currency' => $currency->getValue(),
+            'unit' => $unit->getValue()
+        ];
+        return $this;
+    }
+
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+
+    public function setCreationDate($creationDate)
+    {
+        $this->creationDate = $creationDate;
+        return $this;
+    }
+
+    public function setSalesAgent(
+        ?string $name,
+        string $phone,
+        SalesAgentCategory $category,
+        ?string $organization = null,
+        ?string $url = null,
+        ?string $email = null,
+        ?string $photo = null
+    ) {
+        $this->salesAgent = [
+            'name' => $name,
+            'phone' => $phone,
+            'category' => $category->getValue(),
+            'organization' => $organization,
+            'url' => $url,
+            'email' => $email,
+            'photo' => $photo
+        ];
+        return $this;
+    }
 
     public function setLocation(
         string $country,
@@ -64,19 +123,19 @@ class Offer extends AbstractOffer
 
     public function setType(Type $type): self
     {
-        $this->type = $type;
+        $this->type = $type->getValue();
         return $this;
     }
 
     public function setPropertyType(PropertyType $propertyType)
     {
-        $this->propertyType = $propertyType;
+        $this->propertyType = $propertyType->getValue();
         return $this;
     }
 
     public function setCategory(Category $category)
     {
-        $this->category = $category;
+        $this->category = $category->getValue();
         return $this;
     }
 }

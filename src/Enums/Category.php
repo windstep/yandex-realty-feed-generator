@@ -1,6 +1,6 @@
 <?php
 
-namespace Windstep\YRLGenerator;
+namespace Windstep\YRLGenerator\Enums;
 
 use MyCLabs\Enum\Enum;
 
