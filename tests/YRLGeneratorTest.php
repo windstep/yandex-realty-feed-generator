@@ -2,9 +2,8 @@
 
 namespace Test;
 
-use App\Offer;
-use App\YRLGenerator;
-use PHPUnit\Framework\TestCase;
+use Windstep\YRLGenerator\Offer;
+use Windstep\YRLGenerator\YRLGenerator;
 
 class YRLGeneratorTest extends TestCase
 {
