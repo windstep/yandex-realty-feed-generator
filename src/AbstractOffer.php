@@ -133,9 +133,4 @@ class AbstractOffer
 
         return $value;
     }
-
-    protected function prepareSelf()
-    {
-        $this->properties = $this->filterArray($this->properties);
-    }
 }

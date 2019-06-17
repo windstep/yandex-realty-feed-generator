@@ -445,4 +445,11 @@ class Offer extends AbstractOffer
             'room-space' => $this->roomSpace,
         ];
     }
+
+    protected function prepareSelf()
+    {
+        $this->properties = $this->filterArray($this->properties);
+        $mergingArray = $this->filterArray($this->toArray());
+        $this->properties = array_merge_recursive($this->properties, $mergingArray);
+    }
 }
