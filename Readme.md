@@ -3,6 +3,10 @@
 YRLGenerator is a simple php library, which provides clean way to create files, which are used to work with yandex realty service.
 It is based on YRL syntax and is fully valid.
 
+## Original documentation
+
+You can find original documentation on [yandex realty feed docs website](https://yandex.ru/support/realty/rules/content-requirements.html)
+
 ## Installation
 
 To install, simply type in your terminal following command:
