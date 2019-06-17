@@ -21,5 +21,6 @@
   },
   "autoload-dev": {
     "Tests\\": "tests/"
-  }
+  },
+  "license": "MIT"
 }
