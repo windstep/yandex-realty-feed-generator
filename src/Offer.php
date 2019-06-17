@@ -21,8 +21,6 @@ use Windstep\YRLGenerator\Traits\FiltersArray;
 
 class Offer extends AbstractOffer
 {
-    use FiltersArray;
-
     protected $id;
     protected $type;
     protected $propertyType;
@@ -414,5 +412,37 @@ class Offer extends AbstractOffer
     {
         $this->category = $category->getValue();
         return $this;
+    }
+
+    public function toArray()
+    {
+        return [
+            'type' => $this->type,
+            'property-type' => $this->propertyType,
+            'category' => $this->category,
+            'creation-date' => $this->creationDate,
+            'location' => $this->location,
+            'price' => $this->price,
+            'sales-agent' => $this->salesAgent,
+            'rooms' => $this->rooms,
+            'new-flat' => $this->newFlat,
+            'bathroom-unit' => $this->bathroomUnit,
+            'balcony' => $this->balcony,
+            'floor' => $this->floor,
+            'floors-total' => $this->floorsTotal,
+            'building-name' => $this->buildingName,
+            'yandex-building-id' => $this->yandexBuildingId,
+            'yandex-house-id' => $this->yandexHouseId,
+            'building-section' => $this->buildingSection,
+            'building-state' => $this->buildingState,
+            'ready-quarter' => $this->readyQuarter,
+            'built-year' => $this->builtYear,
+            'image' => $this->images,
+            'description' => $this->description,
+            'area' => $this->area,
+            'living-space' => $this->livingSpace,
+            'kitchen-space' => $this->kitchenSpace,
+            'room-space' => $this->roomSpace,
+        ];
     }
 }

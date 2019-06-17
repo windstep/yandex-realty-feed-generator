@@ -2,16 +2,19 @@
 
 namespace Windstep\YRLGenerator;
 
+use Windstep\YRLGenerator\Traits\FiltersArray;
 use XMLWriter;
 
 class AbstractOffer
 {
+    use FiltersArray;
+
     /** @var XMLWriter */
     protected $engine;
     protected $properties = [];
     protected $id;
 
-    public function __construct($id, array $data = [])
+    public function __construct($id, ?array $data = null)
     {
         $this->id = $id;
         $this->fill($data);
@@ -19,6 +22,7 @@ class AbstractOffer
 
     public function toXMLString(): string
     {
+        $this->prepareSelf();
         $this->setupEngine();
         $this->engine->openMemory();
         $this->engine->startElement('offer');
@@ -113,8 +117,9 @@ class AbstractOffer
         $this->engine->fullEndElement();
     }
 
-    public function fill(array $data = [])
+    public function fill(?array $data = [])
     {
+        if (!$data) return;
         $this->properties = $data;
     }
 
@@ -127,5 +132,10 @@ class AbstractOffer
         }
 
         return $value;
+    }
+
+    protected function prepareSelf()
+    {
+        $this->properties = $this->filterArray($this->properties);
     }
 }
