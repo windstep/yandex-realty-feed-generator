@@ -122,6 +122,8 @@ class AbstractOffer
     {
         if (gettype($value) == 'float' || gettype($value) == 'double') {
             return number_format($value, 2);
+        } elseif (gettype($value) == 'boolean') {
+            return $value ? 'да' : 'нет';
         }
 
         return $value;
