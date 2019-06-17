@@ -17,7 +17,6 @@ use Windstep\YRLGenerator\Enums\SalesAgentCategory;
 use Windstep\YRLGenerator\Enums\Type;
 use Windstep\YRLGenerator\Enums\Unit;
 use Windstep\YRLGenerator\Enums\WindowType;
-use Windstep\YRLGenerator\Traits\FiltersArray;
 
 class Offer extends AbstractOffer
 {
@@ -73,158 +72,158 @@ class Offer extends AbstractOffer
     protected $parking;
     protected $isElite;
 
-    public function setFloorsTotal(int $floorsTotal)
+    public function setFloorsTotal(int $floorsTotal): Offer
     {
         $this->floorsTotal = $floorsTotal;
         return $this;
     }
 
-    public function setBuildingName(string $buildingName)
+    public function setBuildingName(string $buildingName): Offer
     {
         $this->buildingName = $buildingName;
         return $this;
     }
 
-    public function setYandexBuildingId($yandexBuildingId)
+    public function setYandexBuildingId($yandexBuildingId): Offer
     {
         $this->yandexBuildingId = $yandexBuildingId;
         return $this;
     }
 
-    public function setYandexHouseId($yandexHouseId)
+    public function setYandexHouseId($yandexHouseId): Offer
     {
         $this->yandexHouseId = $yandexHouseId;
         return $this;
     }
 
-    public function setBuildingState(BuildingState $buildingState)
+    public function setBuildingState(BuildingState $buildingState): Offer
     {
         $this->buildingState = $buildingState->getValue();
         return $this;
     }
 
-    public function setBuiltYear(int $builtYear)
+    public function setBuiltYear(int $builtYear): Offer
     {
         $this->builtYear = $builtYear;
         return $this;
     }
 
-    public function setReadyQuarter(int $readyQuarter)
+    public function setReadyQuarter(int $readyQuarter): Offer
     {
         $this->readyQuarter = $readyQuarter;
         return $this;
     }
 
-    public function setBuildingPhase(string $buildingPhase)
+    public function setBuildingPhase($buildingPhase): Offer
     {
         $this->buildingPhase = $buildingPhase;
         return $this;
     }
 
-    public function setBuildingType(BuildingType $buildingType)
+    public function setBuildingType(BuildingType $buildingType): Offer
     {
         $this->buildingType = $buildingType->getValue();
         return $this;
     }
 
-    public function setBuildingSeries(int $buildingSeries)
+    public function setBuildingSeries(int $buildingSeries): Offer
     {
         $this->buildingSeries = $buildingSeries;
         return $this;
     }
 
-    public function setBuildingSection($buildingSection)
+    public function setBuildingSection($buildingSection): Offer
     {
         $this->buildingSection = $buildingSection;
         return $this;
     }
 
-    public function setCeilingHight(int $ceilingHight)
+    public function setCeilingHight(int $ceilingHight): Offer
     {
         $this->ceilingHight = $ceilingHight;
         return $this;
     }
 
-    public function setLift(bool $lift)
+    public function setLift(bool $lift): Offer
     {
         $this->lift = $lift;
         return $this;
     }
 
-    public function setRubbishChute(bool $rubbishChute)
+    public function setRubbishChute(bool $rubbishChute): Offer
     {
         $this->rubbishChute = $rubbishChute;
         return $this;
     }
 
-    public function setGuardedBuilding(bool $guardedBuilding)
+    public function setGuardedBuilding(bool $guardedBuilding): Offer
     {
         $this->guardedBuilding = $guardedBuilding;
         return $this;
     }
 
-    public function setParking(bool $parking)
+    public function setParking(bool $parking): Offer
     {
         $this->parking = $parking;
         return $this;
     }
 
-    public function setIsElite(bool $isElite)
+    public function setIsElite(bool $isElite): Offer
     {
         $this->isElite = $isElite;
         return $this;
     }
 
-    public function setFloorCovering(FloorCovering $floorCovering)
+    public function setFloorCovering(FloorCovering $floorCovering): Offer
     {
         $this->floorCovering = $floorCovering->getValue();
         return $this;
     }
 
 
-    public function setNewFlat()
+    public function setNewFlat(): Offer
     {
         $this->newFlat = true;
         return $this;
     }
 
-    public function setFloor(int $floor)
+    public function setFloor(int $floor): Offer
     {
         $this->floor = $floor;
         return $this;
     }
 
-    public function setRooms(int $rooms)
+    public function setRooms(int $rooms): Offer
     {
         $this->rooms = $rooms;
         return $this;
     }
 
-    public function setRoomsType(RoomType $roomsType)
+    public function setRoomsType(RoomType $roomsType): Offer
     {
         $this->roomsType = $roomsType;
         return $this;
     }
 
-    public function setApartments()
+    public function setApartments(): Offer
     {
         $this->apartments = true;
         return $this;
     }
 
-    public function setStudio()
+    public function setStudio(): Offer
     {
         $this->studio = true;
         return $this;
     }
 
-    public function setOpenPlan()
+    public function setOpenPlan(): Offer
     {
         $this->openPlan = true;
         return $this;
     }
 
-    public function setBalcony(BalconyType $balcony, ?int $amount = 1)
+    public function setBalcony(BalconyType $balcony, ?int $amount = 1): Offer
     {
         $balcony = $balcony->getValue();
         if ($amount > 1) {
@@ -234,29 +233,29 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setWindowView(WindowType $windowView)
+    public function setWindowView(WindowType $windowView): Offer
     {
         $this->windowView = $windowView->getValue();
         return $this;
     }
 
-    public function setBathroomUnit(BathroomUnit $bathroomUnit, ?int $count = null)
+    public function setBathroomUnit(BathroomUnit $bathroomUnit, ?int $count = null): Offer
     {
         if ($count) {
             $this->bathroomUnit = $count;
-        }else {
+        } else {
             $this->bathroomUnit = $bathroomUnit->getValue();
         }
         return $this;
     }
 
-    public function setImage(string $imgUrl)
+    public function setImage(string $imgUrl): Offer
     {
         $this->images[] = $imgUrl;
         return $this;
     }
 
-    public function setArea($value, Unit $unit)
+    public function setArea($value, Unit $unit): Offer
     {
         $this->area = [
             'value' => $value,
@@ -265,7 +264,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setLivingSpace($value, Unit $unit)
+    public function setLivingSpace($value, Unit $unit): Offer
     {
         $this->livingSpace = [
             'value' => $value,
@@ -274,7 +273,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setRoomSpace($value, Unit $unit)
+    public function setRoomSpace($value, Unit $unit): Offer
     {
         $this->roomSpace[] = [
             'value' => $value,
@@ -283,7 +282,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setKitchenSpace($value, Unit $unit)
+    public function setKitchenSpace($value, Unit $unit): Offer
     {
         $this->kitchenSpace = [
             'value' => $value,
@@ -292,41 +291,41 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setRenovation(Renovation $renovation)
+    public function setRenovation(Renovation $renovation): Offer
     {
         $this->renovation = $renovation;
         return $this;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description): Offer
     {
         $this->description = $description;
         return $this;
     }
 
-    public function setDealStatus(DealStatus $dealStatus)
+    public function setDealStatus(DealStatus $dealStatus): Offer
     {
         $this->dealStatus = $dealStatus->getValue();
         return $this;
     }
 
-    public function setPrice($value, Currency $currency, ?Unit $unit = null)
+    public function setPrice($value, Currency $currency, ?Unit $unit = null): Offer
     {
         $this->price = [
             'value' => $value,
             'currency' => $currency->getValue(),
-            'unit' => $unit->getValue()
+            'unit' => $unit ? $unit->getValue() : null
         ];
         return $this;
     }
 
-    public function setUrl(string $url)
+    public function setUrl(string $url): Offer
     {
         $this->url = $url;
         return $this;
     }
 
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationDate): Offer
     {
         $this->creationDate = $creationDate;
         return $this;
@@ -340,13 +339,13 @@ class Offer extends AbstractOffer
         ?string $url = null,
         ?string $email = null,
         ?string $photo = null
-    ) {
+    ): Offer {
         $this->salesAgent = [
             'name' => $name,
             'phone' => $phone,
-            'category' => $category->getValue(),
             'organization' => $organization,
             'url' => $url,
+            'category' => $category->getValue(),
             'email' => $email,
             'photo' => $photo
         ];
@@ -364,7 +363,7 @@ class Offer extends AbstractOffer
         ?string $distance = null,
         ?string $latitude = null,
         ?string $longitude = null
-    ) {
+    ): Offer {
         $this->location = [
             'country' => $country,
             'region' => $region,
@@ -380,7 +379,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setMetro(string $name, ?string $timeOnFoot, ?string $timeOnTransport)
+    public function setMetro(string $name, ?string $timeOnFoot = null, ?string $timeOnTransport = null): Offer
     {
         $this->metro[] = [
             'name' => $name,
@@ -390,25 +389,25 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setId($id)
+    public function setId($id): Offer
     {
         $this->id = $id;
         return $this;
     }
 
-    public function setType(Type $type): self
+    public function setType(Type $type): Offer
     {
         $this->type = $type->getValue();
         return $this;
     }
 
-    public function setPropertyType(PropertyType $propertyType)
+    public function setPropertyType(PropertyType $propertyType): Offer
     {
         $this->propertyType = $propertyType->getValue();
         return $this;
     }
 
-    public function setCategory(Category $category)
+    public function setCategory(Category $category): Offer
     {
         $this->category = $category->getValue();
         return $this;
@@ -416,12 +415,28 @@ class Offer extends AbstractOffer
 
     public function toArray()
     {
+        $this->prepareSelf();
+        return $this->properties;
+    }
+
+    protected function prepareSelf()
+    {
+        $this->properties = $this->filterArray($this->properties);
+        $mergingArray = $this->filterArray($this->attributesToArray());
+        $this->properties = array_merge_recursive($this->properties, $mergingArray);
+    }
+
+    public function attributesToArray()
+    {
+        if (!isset($this->location)) {
+            $this->location = [];
+        }
         return [
             'type' => $this->type,
             'property-type' => $this->propertyType,
             'category' => $this->category,
             'creation-date' => $this->creationDate,
-            'location' => $this->location,
+            'location' => array_merge($this->location, ['metro' => $this->metro]),
             'price' => $this->price,
             'sales-agent' => $this->salesAgent,
             'rooms' => $this->rooms,
@@ -437,6 +452,7 @@ class Offer extends AbstractOffer
             'building-state' => $this->buildingState,
             'ready-quarter' => $this->readyQuarter,
             'built-year' => $this->builtYear,
+            'building-phase' => $this->buildingPhase,
             'image' => $this->images,
             'description' => $this->description,
             'area' => $this->area,
@@ -444,12 +460,5 @@ class Offer extends AbstractOffer
             'kitchen-space' => $this->kitchenSpace,
             'room-space' => $this->roomSpace,
         ];
-    }
-
-    protected function prepareSelf()
-    {
-        $this->properties = $this->filterArray($this->properties);
-        $mergingArray = $this->filterArray($this->toArray());
-        $this->properties = array_merge_recursive($this->properties, $mergingArray);
     }
 }
