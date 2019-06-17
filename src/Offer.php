@@ -4,6 +4,8 @@ namespace Windstep\YRLGenerator;
 
 use Windstep\YRLGenerator\Enums\BalconyType;
 use Windstep\YRLGenerator\Enums\BathroomUnit;
+use Windstep\YRLGenerator\Enums\BuildingState;
+use Windstep\YRLGenerator\Enums\BuildingType;
 use Windstep\YRLGenerator\Enums\Category;
 use Windstep\YRLGenerator\Enums\Currency;
 use Windstep\YRLGenerator\Enums\DealStatus;
@@ -54,6 +56,126 @@ class Offer extends AbstractOffer
     protected $windowView;
     protected $bathroomUnit;
     protected $floorCovering;
+
+    protected $floorsTotal;
+    protected $buildingName;
+    protected $yandexBuildingId;
+    protected $yandexHouseId;
+    protected $buildingState;
+    protected $builtYear;
+    protected $readyQuarter;
+    protected $buildingPhase;
+    protected $buildingType;
+    protected $buildingSeries;
+    protected $buildingSection;
+    protected $ceilingHight;
+    protected $lift;
+    protected $rubbishChute;
+    protected $guardedBuilding;
+    protected $parking;
+    protected $isElite;
+
+    public function setFloorsTotal(int $floorsTotal)
+    {
+        $this->floorsTotal = $floorsTotal;
+        return $this;
+    }
+
+    public function setBuildingName(string $buildingName)
+    {
+        $this->buildingName = $buildingName;
+        return $this;
+    }
+
+    public function setYandexBuildingId($yandexBuildingId)
+    {
+        $this->yandexBuildingId = $yandexBuildingId;
+        return $this;
+    }
+
+    public function setYandexHouseId($yandexHouseId)
+    {
+        $this->yandexHouseId = $yandexHouseId;
+        return $this;
+    }
+
+    public function setBuildingState(BuildingState $buildingState)
+    {
+        $this->buildingState = $buildingState->getValue();
+        return $this;
+    }
+
+    public function setBuiltYear(int $builtYear)
+    {
+        $this->builtYear = $builtYear;
+        return $this;
+    }
+
+    public function setReadyQuarter(int $readyQuarter)
+    {
+        $this->readyQuarter = $readyQuarter;
+        return $this;
+    }
+
+    public function setBuildingPhase(string $buildingPhase)
+    {
+        $this->buildingPhase = $buildingPhase;
+        return $this;
+    }
+
+    public function setBuildingType(BuildingType $buildingType)
+    {
+        $this->buildingType = $buildingType->getValue();
+        return $this;
+    }
+
+    public function setBuildingSeries(int $buildingSeries)
+    {
+        $this->buildingSeries = $buildingSeries;
+        return $this;
+    }
+
+    public function setBuildingSection($buildingSection)
+    {
+        $this->buildingSection = $buildingSection;
+        return $this;
+    }
+
+    public function setCeilingHight(int $ceilingHight)
+    {
+        $this->ceilingHight = $ceilingHight;
+        return $this;
+    }
+
+    public function setLift(bool $lift)
+    {
+        $this->lift = $lift;
+        return $this;
+    }
+
+    public function setRubbishChute(bool $rubbishChute)
+    {
+        $this->rubbishChute = $rubbishChute;
+        return $this;
+    }
+
+    public function setGuardedBuilding(bool $guardedBuilding)
+    {
+        $this->guardedBuilding = $guardedBuilding;
+        return $this;
+    }
+
+    public function setParking(bool $parking)
+    {
+        $this->parking = $parking;
+        return $this;
+    }
+
+    public function setIsElite(bool $isElite)
+    {
+        $this->isElite = $isElite;
+        return $this;
+    }
 
     public function setFloorCovering(FloorCovering $floorCovering)
     {
