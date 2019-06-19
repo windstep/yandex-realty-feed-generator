@@ -13,11 +13,21 @@ class AbstractOffer
     protected $engine;
     protected $properties = [];
     protected $id;
+    protected $sameNameProperties = [
+        'metro',
+        'room-space'
+    ];
 
     public function __construct($id, ?array $data = null)
     {
         $this->id = $id;
         $this->fill($data);
+    }
+
+    protected function prepareSelf()
+    {
+        // Anyone could override this function to
+        // prepare offer itself
     }
 
     public function toXMLString(): string
@@ -58,6 +68,8 @@ class AbstractOffer
         $propertyMethod = $this->getMethodNameFromProperty($propertyName);
         if ($this->propertyHasMethod($propertyMethod)) {
             $this->{$propertyMethod}($value);
+        } elseif (in_array($propertyName, $this->sameNameProperties)) {
+            $this->createSameNameElements($propertyName, $value);
         } elseif (is_array($value)) {
             $this->writeArrayElement($propertyName, $value);
         } else {
@@ -83,16 +95,6 @@ class AbstractOffer
         foreach ($images as $image) {
             $this->writeElement('image', $image);
         }
-    }
-
-    protected function createRoomSpaceElement($roomSpaces)
-    {
-        $this->createSameNameElements('room-space', $roomSpaces);
-    }
-
-    protected function createMetroElement($metro)
-    {
-        $this->createSameNameElements('metro', $metro);
     }
 
     protected function createSameNameElements($elementName, $values)
