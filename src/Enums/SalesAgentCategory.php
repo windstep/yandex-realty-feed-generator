@@ -14,4 +14,5 @@ class SalesAgentCategory extends Enum
 {
     private const AGENCY = 'агенство';
     private const DEVELOPER = 'застройщик';
+    private const OWNER = 'владелец';
 }
