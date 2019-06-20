@@ -9,6 +9,7 @@ use MyCLabs\Enum\Enum;
  * @package Windstep\YRLGenerator\Enums
  * @method static AGENCY()
  * @method static DEVELOPER()
+ * @method static OWNER()
  */
 class SalesAgentCategory extends Enum
 {
