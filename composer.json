@@ -1,5 +1,6 @@
 {
   "name": "windstep/yandex-realty-feed-generator",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Sergey",
