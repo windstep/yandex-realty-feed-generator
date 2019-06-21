@@ -72,13 +72,13 @@ class Offer extends AbstractOffer
     protected $parking;
     protected $isElite;
 
-    public function setFloorsTotal(int $floorsTotal): Offer
+    public function setFloorsTotal(?int $floorsTotal): Offer
     {
         $this->floorsTotal = $floorsTotal;
         return $this;
     }
 
-    public function setBuildingName(string $buildingName): Offer
+    public function setBuildingName(?string $buildingName): Offer
     {
         $this->buildingName = $buildingName;
         return $this;
@@ -102,13 +102,13 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setBuiltYear(int $builtYear): Offer
+    public function setBuiltYear(?int $builtYear): Offer
     {
         $this->builtYear = $builtYear;
         return $this;
     }
 
-    public function setReadyQuarter(int $readyQuarter): Offer
+    public function setReadyQuarter(?int $readyQuarter): Offer
     {
         $this->readyQuarter = $readyQuarter;
         return $this;
@@ -126,7 +126,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setBuildingSeries(int $buildingSeries): Offer
+    public function setBuildingSeries(?int $buildingSeries): Offer
     {
         $this->buildingSeries = $buildingSeries;
         return $this;
@@ -138,7 +138,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setCeilingHight(int $ceilingHight): Offer
+    public function setCeilingHight(?int $ceilingHight): Offer
     {
         $this->ceilingHight = $ceilingHight;
         return $this;
@@ -187,13 +187,13 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setFloor(int $floor): Offer
+    public function setFloor(?int $floor): Offer
     {
         $this->floor = $floor;
         return $this;
     }
 
-    public function setRooms(int $rooms): Offer
+    public function setRooms(?int $rooms): Offer
     {
         $this->rooms = $rooms;
         return $this;
@@ -249,7 +249,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setImage(string $imgUrl): Offer
+    public function setImage(?string $imgUrl): Offer
     {
         $this->images[] = $imgUrl;
         return $this;
@@ -297,7 +297,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setDescription(string $description): Offer
+    public function setDescription(?string $description): Offer
     {
         $this->description = $description;
         return $this;
@@ -319,7 +319,7 @@ class Offer extends AbstractOffer
         return $this;
     }
 
-    public function setUrl(string $url): Offer
+    public function setUrl(?string $url): Offer
     {
         $this->url = $url;
         return $this;
