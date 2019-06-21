@@ -266,6 +266,10 @@ class Offer extends AbstractOffer
 
     public function setLivingSpace($value, Unit $unit): Offer
     {
+        if (!$value) {
+            return $this;
+        }
+        
         $this->livingSpace = [
             'value' => $value,
             'unit' => $unit->getValue()
