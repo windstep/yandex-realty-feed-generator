@@ -13,7 +13,7 @@ use MyCLabs\Enum\Enum;
  */
 class SalesAgentCategory extends Enum
 {
-    private const AGENCY = 'агенство';
+    private const AGENCY = 'агентство';
     private const DEVELOPER = 'застройщик';
     private const OWNER = 'владелец';
 }
