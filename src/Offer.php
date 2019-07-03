@@ -269,7 +269,7 @@ class Offer extends AbstractOffer
         if (!$value) {
             return $this;
         }
-        
+
         $this->livingSpace = [
             'value' => $value,
             'unit' => $unit->getValue()
@@ -439,6 +439,8 @@ class Offer extends AbstractOffer
             'type' => $this->type,
             'property-type' => $this->propertyType,
             'category' => $this->category,
+            'deal-status' => $this->dealStatus,
+            'url' => $this->url,
             'creation-date' => $this->creationDate,
             'location' => array_merge($this->location, ['metro' => $this->metro]),
             'price' => $this->price,
