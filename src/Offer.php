@@ -279,6 +279,10 @@ class Offer extends AbstractOffer
 
     public function setRoomSpace($value, Unit $unit): Offer
     {
+        if (!$value) {
+            return $this;
+        }
+        
         $this->roomSpace[] = [
             'value' => $value,
             'unit' => $unit->getValue()
@@ -288,6 +292,10 @@ class Offer extends AbstractOffer
 
     public function setKitchenSpace($value, Unit $unit): Offer
     {
+        if (!$value) {
+            return $this;
+        }
+        
         $this->kitchenSpace = [
             'value' => $value,
             'unit' => $unit->getValue()
